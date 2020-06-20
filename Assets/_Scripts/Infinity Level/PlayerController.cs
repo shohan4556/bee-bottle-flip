@@ -25,7 +25,7 @@ namespace GM_Infinity
         void FixedUpdate() {
             
             if (Input.GetMouseButtonDown(0) && _isGrounded && nextTapTime <= 0f) {
-                nextTapTime = 0.40f;
+                nextTapTime = 0.50f;
                 print("tapped");
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
