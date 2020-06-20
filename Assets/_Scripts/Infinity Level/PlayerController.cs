@@ -13,8 +13,8 @@ namespace GM_Infinity
         [SerializeField]
         private bool _isGrounded = true;
 
-        [SerializeField] 
-        public float nextTapTime = 0.10f;
+        //[SerializeField] 
+        private float nextTapTime = 0;
         
         // Start is called before the first frame update
         void Start() {
@@ -23,22 +23,27 @@ namespace GM_Infinity
 
         // Update is called once per frame
         void FixedUpdate() {
+            
             if (Input.GetMouseButtonDown(0) && _isGrounded && nextTapTime <= 0f) {
+                nextTapTime = 0.40f;
                 print("tapped");
-                //_rigidbody.velocity += Vector2.up * jumpForce;
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                nextTapTime -= Time.deltaTime;
             }
+            nextTapTime -= Time.deltaTime;
+            
+            #region ground check
 
             if (Physics2D.Raycast(transform.position, Vector2.down, 0.35f)) {
                 _isGrounded = true;
             }
             else {
                 _isGrounded = false;
-                nextTapTime = 0.2f;
+                
             }
-            
             Debug.DrawRay(transform.position, Vector2.down * 0.35f, Color.red);
+            
+
+            #endregion
             
         } // end 
 
