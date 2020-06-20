@@ -32,15 +32,16 @@ namespace GM_Infinity
             nextTapTime -= Time.deltaTime;
             
             #region ground check
-
-            if (Physics2D.Raycast(transform.position, Vector2.down, 0.35f)) {
+            
+            // raycast only bucket 
+            if (Physics2D.Raycast(transform.position, Vector2.down, 0.30f)) {
                 _isGrounded = true;
             }
             else {
                 _isGrounded = false;
                 
             }
-            Debug.DrawRay(transform.position, Vector2.down * 0.35f, Color.red);
+            Debug.DrawRay(transform.position, Vector2.down * 0.30f, Color.red);
             
 
             #endregion
