@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelType: 0
   platformPrefabs:
-  - {fileID: 0}
-  playerPrefab: {fileID: 0}
+  - {fileID: 2233003630695950086, guid: 76187be6020719d4cb045a6944ed4d26, type: 3}
+  playerPrefab: {fileID: 4025467884909862623, guid: bd38797e58abd124e86bc484ff6ad054,
+    type: 3}

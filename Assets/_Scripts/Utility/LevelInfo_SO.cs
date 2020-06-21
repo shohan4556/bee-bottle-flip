@@ -23,7 +23,7 @@ public class LevelInfo_SO : ScriptableObject
     
     private void OnValidate() {
         if (levelType == LevelType.infinityLevel) {
-            platformPrefabs = new GameObject[1];
+            Array.Resize(ref platformPrefabs,1);
         }
     }
     
