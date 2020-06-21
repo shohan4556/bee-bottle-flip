@@ -14,6 +14,7 @@ namespace GM_Infinity
         [SerializeField] private bool _isGrounded = true;
         [SerializeField] private float radius;
         private float tapInterval;
+        private float levelCompleteTriggerTime;
         
         // Start is called before the first frame update
         void Start() {
@@ -27,7 +28,7 @@ namespace GM_Infinity
 
             if (Input.GetMouseButtonDown(0) && _isGrounded && tapInterval <= 0f) {
                 tapInterval = 0.50f;
-                print("tapped");
+                print("tapped "+ tapInterval);
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
             tapInterval -= Time.deltaTime;
@@ -37,24 +38,8 @@ namespace GM_Infinity
             #region ground check
 
             Vector2 mid = transform.position;
-            //Vector2 left = new Vector2(transform.position.x+0.25f, transform.position.y);
-            //Vector2 right = new Vector2(transform.position.x-0.25f, transform.position.y);
-            
-            // raycast only bucket 
-            // if (Physics2D.Raycast(transform.position, Vector2.down, 0.30f)) {
-            //     _isGrounded = true;
-            // }
-            // else {
-            //     _isGrounded = false;
-            // }
-
-             _isGrounded = Physics2D.OverlapCircle(mid, radius, groundLayer);
+            _isGrounded = Physics2D.OverlapCircle(mid, radius, groundLayer);
              
-            
-            //Debug.DrawRay(mid, Vector2.down * 0.30f, Color.red);
-            //Debug.DrawRay(left, Vector2.down * 0.30f, Color.red);
-            //Debug.DrawRay(right, Vector2.down * 0.30f, Color.red);
-            
             #endregion
             
             
@@ -67,11 +52,20 @@ namespace GM_Infinity
 
         private void OnCollisionStay2D(Collision2D other) {
             if (other.gameObject.tag.Equals("LevelComplete")) {
-                float dot = Vector2.Dot(transform.position, other.gameObject.transform.position);
-                //print("level complete platform");
+                levelCompleteTriggerTime += Time.deltaTime;
+                if (levelCompleteTriggerTime >= 1.5f) {
+                    GameManager.Instance.RestartLevel();
+                }
+                
             }
             
         } // end 
+
+        private void OnCollisionExit2D(Collision2D other) {
+            if (other.gameObject.tag.Equals("LevelComplete")) {
+                levelCompleteTriggerTime = 0f;
+            }
+        }
 
 
         private void OnBecameInvisible() {
