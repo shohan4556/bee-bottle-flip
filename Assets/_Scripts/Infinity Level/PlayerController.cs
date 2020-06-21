@@ -87,7 +87,7 @@ namespace GM_Infinity
 
         private void OnBecameInvisible() {
             if (_rigidbody.velocity.y < 10f) {
-                GameManager.Instance.RestartLevel();
+                //GameManager.Instance.RestartLevel();
             }
         }
         

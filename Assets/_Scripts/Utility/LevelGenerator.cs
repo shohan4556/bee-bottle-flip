@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    public LevelInfo_SO LevelInfoSo;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        GenerateLevel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void GenerateLevel() {
         
     }
+    
+   
 }
