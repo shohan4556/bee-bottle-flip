@@ -25,12 +25,23 @@ namespace GM_Infinity
         void FixedUpdate() {
 
             #region Input
-
+            // mouse button down slow on mobile
+#if UNITY_EDITOR
+            
             if (Input.GetMouseButtonDown(0) && _isGrounded && tapInterval <= 0f) {
                 tapInterval = 0.50f;
                 print("tapped "+ tapInterval);
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
+#endif
+
+#if PLATFORM_ANDROID
+            if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began) && _isGrounded && tapInterval <= 0f) {
+                tapInterval = 0.50f;
+                _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
+#endif
+            
             tapInterval -= Time.deltaTime;
 
             #endregion
@@ -68,10 +79,17 @@ namespace GM_Infinity
         }
 
 
-        private void OnBecameInvisible() {
-            if (_rigidbody.velocity.y < 10f) {
-                //GameManager.Instance.RestartLevel();
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (other.tag.Equals("Coin")) {
+                other.gameObject.SetActive(false);
             }
         }
+
+        private void OnBecameInvisible() {
+            if (_rigidbody.velocity.y < 10f) {
+                GameManager.Instance.RestartLevel();
+            }
+        }
+        
     }
 }
