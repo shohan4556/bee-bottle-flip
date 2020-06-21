@@ -29,6 +29,7 @@ namespace GM_Infinity
 #if UNITY_EDITOR
             
             if (Input.GetMouseButtonDown(0) && _isGrounded && tapInterval <= 0f) {
+                transform.parent = null;
                 tapInterval = 0.50f;
                 print("tapped "+ tapInterval);
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -37,6 +38,7 @@ namespace GM_Infinity
 
 #if PLATFORM_ANDROID
             if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began) && _isGrounded && tapInterval <= 0f) {
+                transform.parent = null;
                 tapInterval = 0.50f;
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }

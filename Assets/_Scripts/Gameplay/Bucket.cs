@@ -58,13 +58,13 @@ public class Bucket : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other) {
         if (other.gameObject.tag.Equals("Player")) {
-            other.transform.parent = this.transform;
+            //other.transform.parent = this.transform;
         }
     }
 
     private void OnCollisionExit2D(Collision2D other) {
         if (other.gameObject.tag.Equals("Player")) {
-            other.transform.parent = null;
+           // other.transform.parent = null;
         }
     }
     

@@ -21,6 +21,9 @@ public class LevelInfo_SO : ScriptableObject
     [Header("Player Object")]
     public GameObject playerPrefab;
     
+    
+    [Header("Level Complete platform")] public GameObject levelComplatePrefab;
+    
     private void OnValidate() {
         if (levelType == LevelType.infinityLevel) {
             Array.Resize(ref platformPrefabs,1);
