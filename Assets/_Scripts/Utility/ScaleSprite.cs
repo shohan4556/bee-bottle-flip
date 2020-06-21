@@ -9,6 +9,7 @@ public class ScaleSprite : MonoBehaviour
     private float cameraHeight;
     private float cameraWidth;
     
+    
     // Start is called before the first frame update
     void Start()
     {

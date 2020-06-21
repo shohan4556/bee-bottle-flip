@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+    private SpriteRenderer _spriteRenderer;
+
+    public GameObject prefab;
+    public float offset;
+    
     // Start is called before the first frame update
-    void Start()
-    {
-        //float platformTop = platform.transform.position.y + platformSize/2;
-       // Vector3 blockCentre = new Vector3(platform.transform.position.x, platformTop + blockSize/2, platform.transform.position.z);
-       // GameObject test = (GameObject)Instantiate(blockPrefab, blockCentre, Quaternion.identity);
+    void Start() {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+       
+        float platformTop = this.transform.position.y + _spriteRenderer.size.y/2;
+        Vector3 blockCentre = new Vector3(this.transform.position.x, platformTop + offset, this.transform.position.z);
+        GameObject test = Instantiate(prefab, blockCentre, Quaternion.identity, this.transform);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

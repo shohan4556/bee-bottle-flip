@@ -98,7 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   _isGrounded: 1
+  radius: 0.25
 --- !u!58 &4025467884909862622
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,4 +150,4 @@ ConstantForce2D:
   m_Enabled: 1
   m_Force: {x: 0, y: 1}
   m_RelativeForce: {x: 0, y: 0}
-  m_Torque: 0
+  m_Torque: 0.2
