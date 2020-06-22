@@ -75,7 +75,6 @@ namespace GM_Infinity
                 if (levelCompleteTriggerTime >= 1.5f) {
                     GameManager.Instance.RestartLevel();
                 }
-                
             }
             
         } // end 

@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    [Header("Pause UI")] 
+    public GameObject pauseUI;
+    
     private void Awake() {
         Instance = this;
     }
@@ -40,7 +42,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void PauseGame() {
-        
+        Time.timeScale = 0f;
+        pauseUI.SetActive(true);
+    }
+
+    public void ResumeGame() {
+        pauseUI.SetActive(false);
+        Time.timeScale = 1f;
     }
     
 }
