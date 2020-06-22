@@ -11,10 +11,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource music_src;
     public AudioSource sfx_src;
     
-    public AudioClip tap;
-    public AudioClip appmusic;
-    public AudioClip levelcomplete;
-    public AudioClip gameover;
+    [SerializeField] private AudioClip buttonTap;
+    [SerializeField] private AudioClip appmusic;
+    [SerializeField] private AudioClip inputTap;
+    [SerializeField] private AudioClip levelcomplete;
+    [SerializeField] private AudioClip gameover;
     
     private void Awake() {
         
@@ -33,6 +34,7 @@ public class SoundManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("sound")) {
             PlayerPrefs.SetInt("sound", 1);
             PlayerPrefs.SetInt("music", 1);
+            PlayerPrefs.SetInt("vibration", 1);
         }
         
         if(SceneManager.GetActiveScene().name == "Menu")
@@ -46,6 +48,7 @@ public class SoundManager : MonoBehaviour
         }
             
         if (!music_src.isPlaying) {
+            music_src.clip = appmusic;
             music_src.loop = true;
             music_src.Play();
         }
@@ -55,7 +58,7 @@ public class SoundManager : MonoBehaviour
         if(PlayerPrefs.GetInt("sound") == 0)
             return;
         
-        sfx_src.clip = tap;
+        sfx_src.clip = buttonTap;
         sfx_src.Play();
     }
 
@@ -76,6 +79,4 @@ public class SoundManager : MonoBehaviour
         sfx_src.Play();
     }
 
-   
-   
 }

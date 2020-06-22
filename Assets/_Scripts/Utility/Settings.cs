@@ -10,29 +10,37 @@ public class Settings : MonoBehaviour
     public Sprite soundOn;
     public Sprite soundOff;
     
+    [Space(15)]
+    public Sprite vibOn;
+    public Sprite vibOff;
+
     [Space(15)] 
     public Sprite musicOn;
     public Sprite musicOff;
 
     [Header("UI")] 
     public Image soundImg;
+    public Image vibImg;
     public Image musicImg;
     
     private bool sss = true;
+    private bool vvv = true;
     private bool mmm = true;
     
     // Start is called before the first frame update
     void Start()
     {
           sss = true;
+          vvv = true;
           mmm = true;
           
           Init();
     }
 
     void Init() {
-
+        
         sss = Convert.ToBoolean(PlayerPrefs.GetInt("sound"));
+        vvv = Convert.ToBoolean(PlayerPrefs.GetInt("vibration"));
         mmm = Convert.ToBoolean(PlayerPrefs.GetInt("music"));
 
         if (sss)
@@ -40,6 +48,10 @@ public class Settings : MonoBehaviour
         else
             soundImg.sprite = soundOff;
         
+        if (vvv)
+            vibImg.sprite = vibOn;
+        else 
+            vibImg.sprite = vibOff;
         
         if (mmm)
             musicImg.sprite = musicOn;
@@ -63,7 +75,21 @@ public class Settings : MonoBehaviour
         SoundManager.Instance.PlayTapSFX();
     }
 
-   
+    public void TapOnVibration() {
+        SoundManager.Instance.PlayTapSFX();
+        vvv = !vvv;
+        if (!vvv) {
+            //print("on");
+            vibImg.sprite = vibOff;
+        }
+        else if (vvv) {
+            //print("off");
+            vibImg.sprite = vibOn;
+        }
+        PlayerPrefs.SetInt("vibration", Convert.ToInt32(vvv));
+        PlayerPrefs.Save();
+    }
+
     public void TapOnMusic() {
         SoundManager.Instance.PlayTapSFX();
         //print("music");

@@ -13,11 +13,11 @@ public class MySceneLoader : MonoBehaviour
     private void ChangedActiveScene(Scene current, Scene next) {
         //print("scene changed");
         
-        if (next.name != "Game") {
+        if (next.name != "Infinity_Level") {
             SoundManager.Instance.PlayAppMusic();
         }
 
-        if (next.name == "Game") {
+        if (next.name == "Infinity_Level") {
             SoundManager.Instance.music_src.Stop();
         }
     }
