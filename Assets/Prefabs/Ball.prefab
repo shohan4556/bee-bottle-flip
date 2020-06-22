@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4025467884909862610}
   - component: {fileID: 4025467884909862622}
   - component: {fileID: 4025467884909862611}
-  - component: {fileID: 4025467884909862609}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -140,14 +139,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!247 &4025467884909862609
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4025467884909862623}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 1}
-  m_RelativeForce: {x: 0, y: 1}
-  m_Torque: 0.2
