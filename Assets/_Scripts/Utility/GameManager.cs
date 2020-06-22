@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GM_Infinity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [Header("Pause UI")] 
     public GameObject pauseUI;
+    [SerializeField] private Text scoreTxt;
+    [SerializeField] private PlayerController _playerController;
+
+    public static int SCORE = 0;
     
     private void Awake() {
         Instance = this;
@@ -19,10 +25,14 @@ public class GameManager : MonoBehaviour
         pauseUI.SetActive(false);
     }
 
+    public void UpdateScore(int s) {
+        SCORE += s;
+        scoreTxt.text = SCORE.ToString();
+    }
+    
     public void LevelComplete() {
         // todo coins collect animations 
         print("level completed");
-        RestartLevel();
     }
     
     public void GameOver(string name) {

@@ -23,8 +23,8 @@ public class Bucket : MonoBehaviour
 
         RandomMovememt();
 
-        pos1 = new Vector2(transform.position.x-1f, transform.position.y);
-        pos2 = new Vector2(transform.position.x+1f, transform.position.y);
+        pos1 = new Vector2(transform.position.x-1f, transform.position.y-0.10f);
+        pos2 = new Vector2(transform.position.x+1f, transform.position.y-0.10f);
         
         float rand = Random.Range(1f, 100f);
         // 50% chance to move or stay freez
@@ -56,16 +56,4 @@ public class Bucket : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D other) {
-        if (other.gameObject.tag.Equals("Player")) {
-            //other.transform.parent = this.transform;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other) {
-        if (other.gameObject.tag.Equals("Player")) {
-           // other.transform.parent = null;
-        }
-    }
-    
 }

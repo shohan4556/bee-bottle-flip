@@ -38,7 +38,7 @@ public class LevelGenerator : MonoBehaviour
             _nextPos = pos;
             // add platform to pool
             platformPool.Add(go);
-            yield return new WaitForSeconds(0.1f);
+            yield return null;
         }    
     }
 
@@ -50,15 +50,15 @@ public class LevelGenerator : MonoBehaviour
     /// it should be event trigger 
     /// </summary>
     public void ReSpawnPlatform() {
-        foreach (GameObject o in platformPool) {
-            if (!o.activeInHierarchy) {
-                Vector3 pos = new Vector3(_nextPos.x, _nextPos.y + platformOffset);
-                o.transform.position = pos;
-                o.SetActive(true);
-                _nextPos = pos;
-                return;
-            }
-        }
+        // foreach (GameObject o in platformPool) {
+        //     if (!o.activeInHierarchy) {
+        //         Vector3 pos = new Vector3(_nextPos.x, _nextPos.y + platformOffset);
+        //         o.transform.position = pos;
+        //         o.SetActive(true);
+        //         _nextPos = pos;
+        //         return;
+        //     }
+        // }
         
         Vector2 newPos = new Vector2(_nextPos.x, _nextPos.y + platformOffset);
         GameObject go = Instantiate(GetRandomPlatform(), newPos, Quaternion.identity, transform);

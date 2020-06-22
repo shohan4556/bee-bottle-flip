@@ -1649,7 +1649,7 @@ MonoBehaviour:
   LevelInfoSo: {fileID: 11400000, guid: ded799dd1c7f8a243a55b0f0e677f319, type: 2}
   platformOffset: 2
   _playerController: {fileID: 665919062}
-  count: 10
+  count: 6
 --- !u!4 &1974723357
 Transform:
   m_ObjectHideFlags: 0

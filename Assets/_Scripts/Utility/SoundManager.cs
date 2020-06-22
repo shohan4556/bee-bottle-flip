@@ -61,6 +61,23 @@ public class SoundManager : MonoBehaviour
         sfx_src.clip = buttonTap;
         sfx_src.Play();
     }
+    
+    public void PlayInputSFX() {
+        if(PlayerPrefs.GetInt("sound") == 0)
+            return;
+        
+        sfx_src.clip = inputTap;
+        sfx_src.Play();
+    }
+
+
+    public void PlayVibro() {
+        if(PlayerPrefs.GetInt("vibration") == 0)
+            return;
+        // todo play native vibro 
+         Vibration.Vibrate(33);
+        //Handheld.Vibrate();
+    }
 
     public void PlayLevelCompleteSFX() {
         if(PlayerPrefs.GetInt("sound") == 0)

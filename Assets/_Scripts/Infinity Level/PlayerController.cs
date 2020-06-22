@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEngine;
 public delegate void PlatfromSpwn();
 
+public delegate void ScoreUpdate();
+
 namespace GM_Infinity
 {
     public class PlayerController : MonoBehaviour
@@ -20,7 +22,7 @@ namespace GM_Infinity
         
         
         public PlatfromSpwn del_SpawnPlatform;
-        
+        public ScoreUpdate del_ScorePlayer;
         
         // Start is called before the first frame update
         void Start() {
@@ -37,7 +39,7 @@ namespace GM_Infinity
             
             if (Input.GetMouseButtonDown(0) && _isGrounded && tapInterval <= 0f) {
                 transform.parent = null;
-                tapInterval = 0.50f;
+                tapInterval = 0.25f;
                 //print("tapped "+ tapInterval);
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
@@ -45,10 +47,12 @@ namespace GM_Infinity
 
 #if PLATFORM_ANDROID
             if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began) && _isGrounded && tapInterval <= 0f) {
-                // todo vibration 
-                // todo soundFX
+             
+                SoundManager.Instance.PlayInputSFX();
+                SoundManager.Instance.PlayVibro();
+                
                 transform.parent = null;
-                tapInterval = 0.50f;
+                tapInterval = 0.25f;
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
 #endif
@@ -100,27 +104,17 @@ namespace GM_Infinity
             if (other.tag.Equals("Coin")) {
                 other.gameObject.SetActive(false);
             }
+
+            if (other.tag.Equals("Score")) {
+                print("score");
+                other.gameObject.SetActive(false);
+                GameManager.Instance.UpdateScore(1);
+                if (del_SpawnPlatform != null) {
+                    del_SpawnPlatform();
+                }
+            }
+            
         } // end 
 
-        private void OnCollisionEnter2D(Collision2D other) {
-            if (other.gameObject.tag.Equals("Ground")) {
-                
-                //print(transform.position.y - _initPos.y);
-                float distance = Vector2.Distance(transform.position, _initPos);
-                if (distance >= 1.5f) {
-                    _initPos = transform.position;
-                    if (del_SpawnPlatform != null) {
-                        
-                        print("spawn next platform");
-                        del_SpawnPlatform();
-                    }
-                }
-                print(distance);
-            }
-        }// end
-        
-      
-        
-        
     }
 }

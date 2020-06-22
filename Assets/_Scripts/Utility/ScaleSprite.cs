@@ -15,10 +15,10 @@ public class ScaleSprite : MonoBehaviour
     {
         cameraHeight = Camera.main.orthographicSize;
         cameraWidth = cameraHeight * Screen.width / Screen.height; // cameraHeight * aspect ratio
-        
+        gameObject.transform.localScale = Vector3.one * cameraWidth / multiplier;
     }
 
     private void Update() {
-        gameObject.transform.localScale = Vector3.one * cameraWidth / multiplier;
+        
     }
 }
