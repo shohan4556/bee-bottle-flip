@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
         RestartLevel();
     }
     
-    public void GameOver() {
-        
+    public void GameOver(string name) {
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
     }
 
     public void RestartLevel() {

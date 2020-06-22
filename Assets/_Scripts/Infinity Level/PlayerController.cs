@@ -54,6 +54,12 @@ namespace GM_Infinity
             _isGrounded = Physics2D.OverlapCircle(mid, radius, groundLayer);
              
             #endregion
+
+            // gameover 
+            if (_rigidbody.velocity.y < -15f) {
+                _rigidbody.isKinematic = true;
+                GameManager.Instance.GameOver("Gameover");
+            }
             
             
         } // end 
@@ -86,12 +92,7 @@ namespace GM_Infinity
                 other.gameObject.SetActive(false);
             }
         }
-
-        private void OnBecameInvisible() {
-            if (_rigidbody.velocity.y < 10f) {
-                //GameManager.Instance.RestartLevel();
-            }
-        }
+        
         
     }
 }
