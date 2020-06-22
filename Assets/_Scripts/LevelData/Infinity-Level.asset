@@ -17,3 +17,5 @@ MonoBehaviour:
   - {fileID: 2233003630695950086, guid: 76187be6020719d4cb045a6944ed4d26, type: 3}
   playerPrefab: {fileID: 4025467884909862623, guid: bd38797e58abd124e86bc484ff6ad054,
     type: 3}
+  levelComplatePrefab: {fileID: 2506371249749185978, guid: c1583dc0ce57bf4468d8b21f821b90ce,
+    type: 3}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+public delegate void PlatfromSpwn();
 
 namespace GM_Infinity
 {
@@ -15,10 +16,15 @@ namespace GM_Infinity
         [SerializeField] private float radius;
         private float tapInterval;
         private float levelCompleteTriggerTime;
+        private Vector2 _initPos;
+        
+        public PlatfromSpwn del_SpawnPlatform;
+        
         
         // Start is called before the first frame update
         void Start() {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _initPos = transform.position;
         }
 
         // Update is called once per frame
@@ -38,6 +44,8 @@ namespace GM_Infinity
 
 #if PLATFORM_ANDROID
             if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began) && _isGrounded && tapInterval <= 0f) {
+                // todo vibration 
+                // todo soundFX
                 transform.parent = null;
                 tapInterval = 0.50f;
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -90,8 +98,15 @@ namespace GM_Infinity
             if (other.tag.Equals("Coin")) {
                 other.gameObject.SetActive(false);
             }
+        } // end 
+
+        private void OnCollisionEnter2D(Collision2D other) {
+            if (other.gameObject.tag.Equals("Ground")) {
+                if (del_SpawnPlatform != null) {
+                    print("spawn next platform");
+                    del_SpawnPlatform();
+                }
+            }
         }
-        
-        
     }
 }
