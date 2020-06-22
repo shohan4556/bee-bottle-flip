@@ -23,14 +23,14 @@ public class Bucket : MonoBehaviour
 
         RandomMovememt();
 
-        pos1 = new Vector2(transform.position.x-1f, transform.position.y-0.10f);
-        pos2 = new Vector2(transform.position.x+1f, transform.position.y-0.10f);
+        pos1 = new Vector2(transform.position.x-1f, transform.position.y);
+        pos2 = new Vector2(transform.position.x+1f, transform.position.y);
         
         float rand = Random.Range(1f, 100f);
         // 50% chance to move or stay freez
-        if (rand >= 50) {
+        //if (rand >= 50) {
             isMove = true;
-        }
+        //}
         
         if (!isSpawnCoin) {
             return;

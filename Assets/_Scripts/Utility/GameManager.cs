@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text scoreTxt;
     [SerializeField] private PlayerController _playerController;
 
-    public static int SCORE = 0;
+    public int SCORE = 0;
     
     private void Awake() {
         Instance = this;

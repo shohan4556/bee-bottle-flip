@@ -74,6 +74,7 @@ public class SoundManager : MonoBehaviour
     public void PlayVibro() {
         if(PlayerPrefs.GetInt("vibration") == 0)
             return;
+        
         // todo play native vibro 
          Vibration.Vibrate(33);
         //Handheld.Vibrate();

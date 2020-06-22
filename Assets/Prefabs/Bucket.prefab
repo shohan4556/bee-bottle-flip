@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 7781806200865359880}
   - component: {fileID: 7781806200865359885}
   - component: {fileID: 1698816559}
+  - component: {fileID: -6027788084396252252}
   m_Layer: 8
   m_Name: Bucket
   m_TagString: Ground
@@ -242,3 +243,16 @@ MonoBehaviour:
   coinSpawnPos: {fileID: 6678609306745481658}
   isSpawnCoin: 0
   isMove: 0
+--- !u!114 &-6027788084396252252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7781806200865359881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23c517985135404ab9f5d09dc8f0ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 2.35
