@@ -36,7 +36,17 @@ public class GameManager : MonoBehaviour
     }
     
     public void GameOver(string name) {
+        SaveScore();
         SceneManager.LoadScene(name, LoadSceneMode.Single);
+    }
+
+    private void SaveScore() {
+        int best_score = PlayerPrefs.GetInt("BEST");
+        if (SCORE > best_score) {
+            PlayerPrefs.SetInt("BEST", SCORE);
+        }
+        PlayerPrefs.SetInt("SCORE", SCORE);
+        PlayerPrefs.Save();
     }
 
     public void RestartLevel() {

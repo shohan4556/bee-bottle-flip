@@ -17,7 +17,7 @@ public class GameOver : MonoBehaviour
         score.text = "Score : "+s.ToString();
         highScore.text = "Best Score : "+best.ToString();
         
-        PlayerPrefs.SetInt("SCORE", 0);
+        //PlayerPrefs.SetInt("SCORE", 0);
         PlayerPrefs.Save();
     }
 

@@ -2062,6 +2062,16 @@ PrefabInstance:
       propertyPath: pauseUI
       value: 
       objectReference: {fileID: 1460828190}
+    - target: {fileID: 8634827206636717337, guid: 79584dab01766984e9515b9eb9dfe5e4,
+        type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 665919062}
+    - target: {fileID: 8634827206636717337, guid: 79584dab01766984e9515b9eb9dfe5e4,
+        type: 3}
+      propertyPath: scoreTxt
+      value: 
+      objectReference: {fileID: 844644753}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79584dab01766984e9515b9eb9dfe5e4, type: 3}
 --- !u!114 &5420608916804711648
