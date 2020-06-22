@@ -18,6 +18,7 @@ namespace GM_Infinity
         private float levelCompleteTriggerTime;
         private Vector2 _initPos;
         
+        
         public PlatfromSpwn del_SpawnPlatform;
         
         
@@ -37,7 +38,7 @@ namespace GM_Infinity
             if (Input.GetMouseButtonDown(0) && _isGrounded && tapInterval <= 0f) {
                 transform.parent = null;
                 tapInterval = 0.50f;
-                print("tapped "+ tapInterval);
+                //print("tapped "+ tapInterval);
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
 #endif
@@ -84,7 +85,8 @@ namespace GM_Infinity
                     GameManager.Instance.RestartLevel();
                 }
             }
-            
+
+           
         } // end 
 
         private void OnCollisionExit2D(Collision2D other) {
@@ -102,11 +104,23 @@ namespace GM_Infinity
 
         private void OnCollisionEnter2D(Collision2D other) {
             if (other.gameObject.tag.Equals("Ground")) {
-                if (del_SpawnPlatform != null) {
-                    print("spawn next platform");
-                    del_SpawnPlatform();
+                
+                //print(transform.position.y - _initPos.y);
+                float distance = Vector2.Distance(transform.position, _initPos);
+                if (distance >= 1.5f) {
+                    _initPos = transform.position;
+                    if (del_SpawnPlatform != null) {
+                        
+                        print("spawn next platform");
+                        del_SpawnPlatform();
+                    }
                 }
+                print(distance);
             }
-        }
+        }// end
+        
+      
+        
+        
     }
 }
