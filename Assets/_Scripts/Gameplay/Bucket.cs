@@ -24,10 +24,10 @@ public class Bucket : MonoBehaviour
         RandomMovememt();
 
         pos1 = transform.localPosition;
-        pos1.x -= 0.5f;
+        pos1.x -= 1f;
         
         pos2 = transform.localPosition;
-        pos2.x += 0.5f;
+        pos2.x += 1f;
              
         float rand = Random.Range(1f, 100f);
         // 50% chance to move or stay freze
