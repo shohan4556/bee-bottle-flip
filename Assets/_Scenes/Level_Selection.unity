@@ -2608,7 +2608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.51197046, g: 0.52684826, b: 0.5566038, a: 1}
-  m_EffectDistance: {x: 1, y: -4}
+  m_EffectDistance: {x: 1, y: -8}
   m_UseGraphicAlpha: 1
 --- !u!1 &1282921270
 GameObject:

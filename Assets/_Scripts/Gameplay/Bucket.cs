@@ -12,8 +12,8 @@ public class Bucket : MonoBehaviour
     [SerializeField] private bool isSpawnCoin = false;
     [SerializeField] private bool isMove = false;
     
-    private Vector2 pos1;
-    private Vector2 pos2;
+    private Vector3 pos1;
+    private Vector3 pos2;
 
     private float moveSpeed;
     private float rndLength;
@@ -23,13 +23,16 @@ public class Bucket : MonoBehaviour
 
         RandomMovememt();
 
-        pos1 = new Vector2(transform.position.x-1f, transform.position.y);
-        pos2 = new Vector2(transform.position.x+1f, transform.position.y);
+        pos1 = transform.localPosition;
+        pos1.x -= 0.5f;
         
+        pos2 = transform.localPosition;
+        pos2.x += 0.5f;
+             
         float rand = Random.Range(1f, 100f);
-        // 50% chance to move or stay freez
+        // 50% chance to move or stay freze
         //if (rand >= 50) {
-            isMove = true;
+            //isMove = true;
         //}
         
         if (!isSpawnCoin) {
@@ -48,11 +51,9 @@ public class Bucket : MonoBehaviour
     }
 
 
-    private float timer = 0f;
     private void Update() {
         if (isMove) {
-            transform.position = Vector3.Lerp(pos1, pos2, Mathf.PingPong(Time.time *moveSpeed, rndLength));
-            timer += Time.deltaTime;
+            transform.localPosition = Vector3.Lerp(pos1, pos2, Mathf.PingPong(Time.time * moveSpeed, rndLength));
         }
     }
 
