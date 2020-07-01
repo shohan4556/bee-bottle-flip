@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followObject: {fileID: 4025467884669622161}
-  followOffset: {x: 0, y: 3}
+  followOffset: {x: 0, y: 2.5}
   LockX: 1
   LockY: 0
   speed: 3
@@ -929,7 +929,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.18
 --- !u!114 &4025467884669622172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578a65d5e2669634492aaabbab085967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1.35
+  jumpForce: 0.75
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -960,7 +960,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.12566371
+  m_Mass: 0.10178761
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1

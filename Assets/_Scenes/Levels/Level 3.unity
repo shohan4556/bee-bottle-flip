@@ -500,6 +500,11 @@ PrefabInstance:
       propertyPath: scoreTxt
       value: 
       objectReference: {fileID: 844644753}
+    - target: {fileID: 8634827206636717337, guid: 79584dab01766984e9515b9eb9dfe5e4,
+        type: 3}
+      propertyPath: nextLevelIndex
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79584dab01766984e9515b9eb9dfe5e4, type: 3}
 --- !u!1001 &1051871566
