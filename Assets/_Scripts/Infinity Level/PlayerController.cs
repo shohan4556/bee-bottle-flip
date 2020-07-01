@@ -20,9 +20,9 @@ namespace GM_Infinity
         private float levelCompleteTriggerTime;
         private Vector2 _initPos;
         
-        
-        public PlatfromSpwn del_SpawnPlatform;
-        public ScoreUpdate del_ScorePlayer;
+        // for infinity level
+        //public PlatfromSpwn del_SpawnPlatform;
+        //public ScoreUpdate del_ScorePlayer;
         
         // Start is called before the first frame update
         void Start() {
@@ -73,8 +73,7 @@ namespace GM_Infinity
                 _rigidbody.isKinematic = true;
                 GameManager.Instance.GameOver("Gameover");
             }
-            
-            
+             
         } // end 
 
         private void OnDrawGizmos() {
@@ -85,11 +84,10 @@ namespace GM_Infinity
         private void OnCollisionStay2D(Collision2D other) {
             if (other.gameObject.tag.Equals("LevelComplete")) {
                 levelCompleteTriggerTime += Time.deltaTime;
-                if (levelCompleteTriggerTime >= 1.5f) {
-                    GameManager.Instance.RestartLevel();
+                if (levelCompleteTriggerTime >= 1f) {
+                    GameManager.Instance.NextLevel();
                 }
             }
-
            
         } // end 
 
@@ -103,16 +101,18 @@ namespace GM_Infinity
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.tag.Equals("Coin")) {
                 other.gameObject.SetActive(false);
+                GameManager.Instance.UpdateScore(1);
             }
 
-            if (other.tag.Equals("Score")) {
-                print("score");
-                other.gameObject.SetActive(false);
-                GameManager.Instance.UpdateScore(1);
-                if (del_SpawnPlatform != null) {
-                    del_SpawnPlatform();
-                }
-            }
+            // for infinity level
+            // if (other.tag.Equals("Score")) {
+            //     print("score");
+            //     other.gameObject.SetActive(false);
+            //     GameManager.Instance.UpdateScore(1);
+            //     if (del_SpawnPlatform != null) {
+            //         del_SpawnPlatform();
+            //     }
+            // }
             
         } // end 
 

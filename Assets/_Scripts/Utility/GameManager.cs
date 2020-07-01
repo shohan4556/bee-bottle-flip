@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject pauseUI;
     [SerializeField] private Text scoreTxt;
     [SerializeField] private PlayerController _playerController;
-
-    public int SCORE = 0;
+    [SerializeField] private int nextLevelIndex;
+    
+    private int SCORE = 0;
     
     private void Awake() {
         Instance = this;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         pauseUI.SetActive(false);
+        PlayerPrefs.SetInt("currentLevel", SceneManager.GetActiveScene().buildIndex);
     }
 
     public void UpdateScore(int s) {
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
     }
     
     public void NextLevel() {
-        
+        SceneManager.LoadScene(nextLevelIndex, LoadSceneMode.Single);
     }
     
     public void ResetPlayer() {

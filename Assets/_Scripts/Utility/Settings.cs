@@ -20,7 +20,7 @@ public class Settings : MonoBehaviour
 
     [Header("UI")] 
     public Image soundImg;
-    public Image vibImg;
+    //public Image vibImg;
     public Image musicImg;
     
     private bool sss = true;
@@ -48,10 +48,10 @@ public class Settings : MonoBehaviour
         else
             soundImg.sprite = soundOff;
         
-        if (vvv)
-            vibImg.sprite = vibOn;
-        else 
-            vibImg.sprite = vibOff;
+        //if (vvv)
+            //vibImg.sprite = vibOn;
+        //else 
+            //vibImg.sprite = vibOff;
         
         if (mmm)
             musicImg.sprite = musicOn;
@@ -75,20 +75,20 @@ public class Settings : MonoBehaviour
         SoundManager.Instance.PlayTapSFX();
     }
 
-    public void TapOnVibration() {
+    /*public void TapOnVibration() {
         SoundManager.Instance.PlayTapSFX();
         vvv = !vvv;
         if (!vvv) {
             //print("on");
-            vibImg.sprite = vibOff;
+            //vibImg.sprite = vibOff;
         }
         else if (vvv) {
             //print("off");
-            vibImg.sprite = vibOn;
+            //vibImg.sprite = vibOn;
         }
         PlayerPrefs.SetInt("vibration", Convert.ToInt32(vvv));
         PlayerPrefs.Save();
-    }
+    }*/
 
     public void TapOnMusic() {
         SoundManager.Instance.PlayTapSFX();

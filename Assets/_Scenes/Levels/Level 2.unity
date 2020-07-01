@@ -725,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 8634827206636717337, guid: 79584dab01766984e9515b9eb9dfe5e4,
         type: 3}
       propertyPath: nextLevelIndex
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79584dab01766984e9515b9eb9dfe5e4, type: 3}
@@ -736,6 +736,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1060776299}
     m_Modifications:
+    - target: {fileID: 1698816559, guid: b976e426ec94d5242a3463a9fc410b4b, type: 3}
+      propertyPath: isMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7781806200865359881, guid: b976e426ec94d5242a3463a9fc410b4b,
         type: 3}
       propertyPath: m_Name
@@ -807,7 +811,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1698816559, guid: b976e426ec94d5242a3463a9fc410b4b, type: 3}
       propertyPath: isMove
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1698816559, guid: b976e426ec94d5242a3463a9fc410b4b, type: 3}
       propertyPath: isSpawnCoin

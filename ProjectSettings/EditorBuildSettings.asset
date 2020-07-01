@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Infinity-Mode/Menu.unity
+    path: Assets/_Scenes/Menu.unity
     guid: 5c2812ee4a6148a439f7cd98807fc2e8
   - enabled: 1
-    path: Assets/_Scenes/Infinity-Mode/Infinity_Level.unity
-    guid: dbbcbfcfaf2bf08458c3d098c277113f
+    path: Assets/_Scenes/Levels/Level 1.unity
+    guid: 41f88b6ae133d954b9fbbc0a59141fa9
   - enabled: 1
-    path: Assets/_Scenes/Infinity-Mode/GameOver.unity
+    path: Assets/_Scenes/Levels/Level 2.unity
+    guid: 62a6fcc8926f31e4f8e9c3fb47282d72
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Level 3.unity
+    guid: 91688400deeb3524cb90572232dc1d76
+  - enabled: 1
+    path: Assets/_Scenes/Gameover.unity
     guid: 6118fc15ed971a84097e36703678eddf
   m_configObjects: {}

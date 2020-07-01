@@ -12,14 +12,13 @@ public class LevelGenerator : MonoBehaviour
     private List<GameObject> platformPool;
     private Vector2 _nextPos;
     [SerializeField] private float platformOffset;
-    [SerializeField] private PlayerController _playerController;
     [SerializeField] private int count;
     
     
     // Start is called before the first frame update
     void Start() {
         // init 
-        _playerController.del_SpawnPlatform += ReSpawnPlatform;
+        //_playerController.del_SpawnPlatform += ReSpawnPlatform;
         
         platformPool = new List<GameObject>();
         _nextPos = this.transform.position;

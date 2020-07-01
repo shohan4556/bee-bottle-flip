@@ -25,4 +25,10 @@ public class MySceneLoader : MonoBehaviour
     public void LoadScene(int index) {
         SceneManager.LoadScene(index);
     }
+
+    public void RestartLevel() {
+        //todo get last played level 
+        int idx = PlayerPrefs.GetInt("currentLevel");
+        SceneManager.LoadScene(idx);
+    }
 }

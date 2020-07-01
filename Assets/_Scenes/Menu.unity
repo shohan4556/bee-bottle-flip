@@ -1055,7 +1055,7 @@ GameObject:
   m_Layer: 0
   m_Name: ---------------Settings-------------
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1071,14 +1071,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b95689fa3792449a9c376eb6b329ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundOn: {fileID: 21300000, guid: 13c1ee91d2a4944478abfe4e6b6193f5, type: 3}
-  soundOff: {fileID: 21300000, guid: b5a5137baf19d66408dfedc4273ac599, type: 3}
+  soundOn: {fileID: 21300000, guid: c65d1d944e5b6194c94c273f7adc6929, type: 3}
+  soundOff: {fileID: 21300000, guid: 091f92ca8a991b647847e19fb9bc53f1, type: 3}
   vibOn: {fileID: 21300000, guid: 6fdd4766cbf88f6468d46adb2c300a24, type: 3}
   vibOff: {fileID: 21300000, guid: e447812fe1d00a34290691018f79b2a3, type: 3}
-  musicOn: {fileID: 21300000, guid: a54e0076df66fa445ad9be55121170f1, type: 3}
-  musicOff: {fileID: 21300000, guid: 6162d6e11e302b64195f0b95976e8682, type: 3}
+  musicOn: {fileID: 21300000, guid: 4d403510b66e2e1409db16382ceb9c1c, type: 3}
+  musicOff: {fileID: 21300000, guid: 06950e7d276e6324cb9e04a306a68e93, type: 3}
   soundImg: {fileID: 538410571}
-  vibImg: {fileID: 1683051374}
   musicImg: {fileID: 296097775}
 --- !u!4 &1537208250
 Transform:
