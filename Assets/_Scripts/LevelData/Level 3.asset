@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f205353205a0d46a65e8227ea06d27, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
-  levelType: 0
-  platformPrefabs: []
-  playerPrefab: {fileID: 0}
-  levelComplatePrefab: {fileID: 0}
+  levelType: 1
+  platformPrefabs:
+  - {fileID: 8789892778440252361, guid: d4e06326f554570439ed88817f70b983, type: 3}
+  - {fileID: 7899832092609192941, guid: ed2cc0cf28eabfe44a294aab616e6b3d, type: 3}
+  playerPrefab: {fileID: 4025467884909862623, guid: bd38797e58abd124e86bc484ff6ad054,
+    type: 3}
+  levelComplatePrefab: {fileID: 2506371249749185978, guid: c1583dc0ce57bf4468d8b21f821b90ce,
+    type: 3}

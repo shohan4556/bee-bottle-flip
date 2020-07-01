@@ -11,9 +11,10 @@ public class LevelGenerator : MonoBehaviour
     private GameObject player;
     private List<GameObject> platformPool;
     private Vector2 _nextPos;
+    [SerializeField] private Transform startingPos;
     [SerializeField] private float platformOffset;
     [SerializeField] private int count;
-    
+    private GameObject _levelComplete;
     
     // Start is called before the first frame update
     void Start() {
@@ -21,24 +22,25 @@ public class LevelGenerator : MonoBehaviour
         //_playerController.del_SpawnPlatform += ReSpawnPlatform;
         
         platformPool = new List<GameObject>();
-        _nextPos = this.transform.position;
+        _nextPos = startingPos.position;
         platfroms = LevelInfoSo.platformPrefabs;
         player = LevelInfoSo.playerPrefab;
+        _levelComplete = LevelInfoSo.levelComplatePrefab;
         
-        
-        //GenerateLevel();
-        StartCoroutine(GenerateLevel());
+        GenerateLevel();
+        //StartCoroutine(GenerateLevel());
     }
 
-    private IEnumerator GenerateLevel() {
+    private void GenerateLevel() {
         for (int i = 0; i < count; i++) {
             Vector3 pos = new Vector3(_nextPos.x, _nextPos.y + platformOffset);
             GameObject go = Instantiate(GetRandomPlatform(), pos, Quaternion.identity, transform);
             _nextPos = pos;
-            // add platform to pool
-            platformPool.Add(go);
-            yield return null;
-        }    
+        }
+        
+        Vector3 last = new Vector3(_nextPos.x, _nextPos.y + platformOffset);
+        GameObject level = Instantiate(_levelComplete, last, Quaternion.identity, transform);
+        _nextPos = last;
     }
 
     private GameObject GetRandomPlatform() {
